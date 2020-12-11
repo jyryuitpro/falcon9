@@ -33,7 +33,7 @@ public class Member {
 //    private String id;
 
     @Id
-//    @GeneratedValue
+    @GeneratedValue
 
     //자동 생성
     //기본 키 생성을 데이터베이스에 위임
@@ -80,8 +80,12 @@ public class Member {
     private int temp;
 
     //외래 키가 있는 쪽이 연관관계의 주인
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "team_id")
+//    private Team team;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id", insertable = false, updatable = false)
     private Team team;
 
 //    protected Member() {
@@ -91,16 +95,16 @@ public class Member {
         this.username = username;
     }
 
-    public Member(String username, int age, Team team) {
-        this.username = username;
-        this.age = age;
-        if (team != null) {
-            changeTeam(team);
-        }
-    }
+//    public Member(String username, int age, Team team) {
+//        this.username = username;
+//        this.age = age;
+//        if (team != null) {
+//            changeTeam(team);
+//        }
+//    }
 
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    }
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
 }

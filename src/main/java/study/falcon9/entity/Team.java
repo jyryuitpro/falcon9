@@ -20,7 +20,11 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+//    @OneToMany(mappedBy = "team")
+//    private List<Member> members = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "team_id")
     private List<Member> members = new ArrayList<>();
 
     public Team(String name) {
