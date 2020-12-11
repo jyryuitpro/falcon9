@@ -79,6 +79,7 @@ public class Member {
     @Transient
     private int temp;
 
+    //외래 키가 있는 쪽이 연관관계의 주인
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
