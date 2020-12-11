@@ -1,4 +1,4 @@
-package study.falcon9.entity.oneway;
+package study.falcon9.entity.manytooneoneway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,21 +18,21 @@ class M1Test {
 
     @Test
     void testEntity() {
-        T1 t1 = new T1();
-        t1.setName("TeamA");
-        em.persist(t1);
+        T1 team = new T1();
+        team.setName("TeamA");
+        em.persist(team);
 
-        M1 m1 = new M1();
-        m1.setUsername("member1");
-        m1.setT1(t1);
-        em.persist(m1);
+        M1 member = new M1();
+        member.setUsername("member1");
+        member.setTeam(team);
+        em.persist(member);
 
         em.flush();
         em.clear();
 
-        M1 findM1 = em.find(M1.class, m1.getId());
-        T1 findT1 = findM1.getT1();
+        M1 findMember = em.find(M1.class, member.getId());
+        T1 findTeam = findMember.getTeam();
 
-        System.out.println("findT1.getName() = " + findT1.getName());
+        System.out.println("findTeam.getName() = " + findTeam.getName());
     }
 }

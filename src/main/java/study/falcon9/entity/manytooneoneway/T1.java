@@ -1,11 +1,8 @@
-package study.falcon9.entity.oneway;
+package study.falcon9.entity.manytooneoneway;
 
 import lombok.*;
-import study.falcon9.entity.Member;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter

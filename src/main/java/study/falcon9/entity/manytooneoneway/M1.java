@@ -1,4 +1,4 @@
-package study.falcon9.entity.oneway;
+package study.falcon9.entity.manytooneoneway;
 
 import lombok.*;
 
@@ -21,5 +21,5 @@ public class M1 {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID")
-    private T1 t1;
+    private T1 team;
 }
