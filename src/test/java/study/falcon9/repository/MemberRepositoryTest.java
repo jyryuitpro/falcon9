@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import study.falcon9.entity.Member;
+import study.falcon9.entity.RoleType;
 
 import java.util.Optional;
 
@@ -23,6 +24,8 @@ class MemberRepositoryTest {
     @Test
     void testMember() {
         Member member = new Member("memberA");
+        member.setUsername("A");
+        member.setRoleType(RoleType.USER);
         Member savedMember = memberRepository.save(member);
 
 //        Optional<Member> byId = memberRepository.findById(savedMember.getId());
