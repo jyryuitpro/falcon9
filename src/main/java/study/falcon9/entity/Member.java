@@ -10,15 +10,41 @@ import java.util.Date;
 
 @Entity
 //@Table(name = "MBR")
+
 //@Table(uniqueConstraints = )
+
+//@TableGenerator(
+//        name = "MEMBER_SEQ_GENERATOR",
+//        table = "MY_SEQUENCES",
+//        pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
+
+//@SequenceGenerator(
+//        name = "MEMBER_SEQ_GENERATOR",
+//        sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
+//        initialValue = 1, allocationSize = 50)
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
 public class Member {
 
+    //직접 할당
+//    @Id
+//    private String id;
+
     @Id
-    @GeneratedValue
+//    @GeneratedValue
+
+    //자동 생성
+    //기본 키 생성을 데이터베이스에 위임
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    //데이터베이스 시퀀스 오브젝트 사용
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
+
+    //TABLE 전략 매핑
+//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
     @Column(name = "member_id")
     private Long id;
 
