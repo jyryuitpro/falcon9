@@ -88,6 +88,11 @@ public class Member {
     @JoinColumn(name = "team_id", insertable = false, updatable = false)
     private Team team;
 
+    //외래 키가 있는 쪽이 연관관계의 주인
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
 //    protected Member() {
 //    }
 
